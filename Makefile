@@ -296,8 +296,11 @@ formal-gaussian-verify:
 	$(MAKE) -C research/gaussian-parity-synthesis verify
 	python3 scripts/check_lean_axioms.py --project research/gaussian-parity-synthesis --audit research/gaussian-parity-synthesis/AuditAll.lean
 
-.PHONY: skip-frame-verify
+.PHONY: skip-frame-verify frame-orders-verify
 skip-frame-verify:
 	python3 scripts/experiments/verify_skip_frame.py
 
-verify-community: skip-frame-verify
+frame-orders-verify:
+	python3 scripts/experiments/verify_frame_orders.py
+
+verify-community: skip-frame-verify frame-orders-verify

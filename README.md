@@ -1,3 +1,11 @@
+# Conditional saving 4.686464919e-5 from per-group point orders
+
+**κ = 4686464919/10^14 = 4.686464919×10⁻⁵ > 2^-15**, conditional as in PR #57:
+**0.3645% above PR #57**. Per-group point orders on PR #53's skip-prefix graph,
+compiled by PR #57's joint frame compiler, cut roles to 31,274 (h=23) and 41,107
+(h=25). See `scripts/experiments/frame_orders_README.txt`; run
+`make frame-orders-verify`.
+
 # A sharper exponent for integer multiplication
 
 **Community research maintained by Douglas Colkitt — conditional on the original
