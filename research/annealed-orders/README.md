@@ -31,7 +31,7 @@ timeline with the dirty basis in both orientations. `witness.py` checks the
 exact moment, all 47 assembly constraints and 7 margins, rejects the next grid
 points, and excludes PR #47's child list. `anneal.py` and
 `optimize_matching.py` regenerate the pinned inputs; they are not part of
-verification. Full `make verify`: @FULL@.
+verification. Full `make verify` passed: 195 tests, 18 historical patch checks.
 
 Credits: Rohan Arun (PR #47), Chafik Boukhalfa (PR #43/#46), RaD / hipotures
 (PR #41) and every predecessor credited there. Annealed orders by eumemic with
