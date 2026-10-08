@@ -1,0 +1,234 @@
+Prepared with OpenAI Codex assistance\. This is an incremental extension of Zhihao Chen’s PR29 construction and Rohan Arun’s PR31 corner certificates, not a new unconditional multiplication theorem\. Apache\-2\.0; inherited attribution is retained\.
+
+## Statement and scope
+
+Under the same upstream multiplication, ordered\-affine compiler, arbitrary\-width transfer, common\-basis, semantic precision, phase\-cell inverse, bulk locality, prime\-supply, exact recovery, and fixed finite\-alphabet tape hypotheses retained by PR29/31,
+
+&#91;
+T&#40;n&#41;=O\!\\left&#40;n&#40;\\log n&#41;^\{1\-\\kappa\}\\right&#41;,\\qquad
+\\boxed\{\\kappa=\\frac\{1638103\}\{10^\{11\}\}=0\.00001638103\}\.
+&#93;
+
+This increases the saving in PR31, &#40;15878574/10^\{12\}&#41;, by exactly &#40;502456/15878574&#41;, approximately **3\.16436476%**\. This is an improvement in the asymptotic saving parameter, not a measured runtime speedup\. No optimality is claimed\.
+
+The changes are the selected bit dimensions, freshly certified data corners at those dimensions, and the analytic stopping parameter &#40;\\beta=1/20&#41;\. The complex circuit and semantic guard are unchanged\. Every local producer, role, physical rank, and recursive child is charged; the two\-stage endpoint copy correction remains paid\.
+
+## 1\. Reconstructed finite producers and topology
+
+Choose &#40;a=47,b=45,m=ab=2115&#41;\. Reuse the PR24/29 base\-four, retained\-total, aligned\-pair producer and positive\-label carrier matching algorithm\. Reconstruct it at both selected dimensions\. The exact records are:
+
+|(h)|(v_h) |additions (c_h)|outputs (q_h)|matches|(R_h)  |loss |
+|--:|-----:|--------------:|------------:|------:|------:|----:|
+|47 |16,215|354,791        |48,692       |6,135  |397,348|2,162|
+|45 |14,190|309,138        |42,615       |5,649  |346,104|1,980|
+
+The replay checks all scalar partial sums and disjoint additions, the common\-point property, both matching records, and the full rank histograms\. A separate integer label audit checks all &#40;c\_h&#41; envelopes, all &#40;2c\_h&#41; dependency inclusions, and all &#40;q\_h&#41; output frames\. Complement orientation follows the retained exact duality\. Thus these are reconstructed producers, not interpolated operation counts\.
+
+Write
+
+&#91;
+N=v\_av\_b=230090850,\\quad B\_a=v\_bR\_a=5638368120,\\quad
+B\_b=v\_aR\_b=5612076360\.
+&#93;
+
+The PR29 two\-stage physical schedule, including its explicitly charged &#40;N&#41; rank\-one copy corrections, gives
+
+&#91;
+W=2N\+B\_a\+B\_b=11710626180,
+&#93;
+&#91;
+L=v\_ba&#40;a\-1&#41;\+v\_ab&#40;b\-1&#41;=62784480,
+\\quad D=N\-2L=104521890,
+&#93;
+&#91;
+s=Wm\-D=24767869848810\.
+&#93;
+
+No operation is removed from that schedule\. All dirty scratch restoration, source and terminal frames, and role sharing use the dimension\-parametric PR29 argument\.
+
+## 2\. A single compatible rational basis
+
+Use PR29’s prescribed inner family &#40;K=T\_2&#40;I\_a\\otimes L\_b&#41;&#41;, with &#40;T\_2&#40;x\\otimes e\_\\beta&#41;=M\_\\beta L\_ax\\otimes e\_\\beta&#41;\. The full boundary labels are
+
+&#91;
+R\_\{\\rm full\}=&#91;0,\\ldots,46;1,\\ldots,46;0&#93;,
+\\quad C\_\{\\rm full\}=&#91;46;0,\\ldots,45;0,\\ldots,46&#93;\.
+&#93;
+
+For physical index &#40;i=b\\alpha\+\\beta&#41;, prescribe row &#40;\\alpha&#41; of &#40;M\_\\beta&#41; by the row label at &#40;i<2a&#41;, and the inverse column at &#40;i=m\-2a\+j&#41; by the corresponding column label\. `prescriptions(47,45)` explicitly checks that each prescription is an injective partial permutation and completes it to a permutation\. It also checks the two retained tree conditions\. The physical boundary intervals are disjoint\. The factors &#40;L\_a,L\_b&#41; remain free\.
+
+The ordinary local and auxiliary corner proofs of PR29 apply with &#40;a=b\+2&#41;: the two auxiliary small corners are nonzero diagonals of widths 47 and 45\. The direct permutation\-contraction control supplies normalized witnesses and checks these corners and the full data corner\. It also rejects an incorrectly shifted auxiliary ordering\. The new data\-block proof below gives an independent characteristic\-zero witness for that full data corner\.
+
+Let &#40;d=a\+b\-1=91&#41;\. The data null corner uses the first &#40;d&#41; row labels and last &#40;d&#41; column labels:
+
+&#91;
+R=&#91;0,\\ldots,46;1,\\ldots,44&#93;,\\quad
+C=&#91;2,\\ldots,45;0,\\ldots,46&#93;\.
+&#93;
+
+Its residues are &#40;\\beta\_i=i\\bmod45&#41; and &#40;\\gamma\_j=&#40;m\-d\+j&#41;\\bmod45=&#40;j\-1&#41;\\bmod45&#41;\. For normalized line projectors &#40;p\\xi&#41; and &#40;v\\nu&#41;, with &#40;\\xi p=\\nu v=1&#41;, the null projector is &#40;Q=I\-&#40;I\-p\\xi&#41;\\otimes&#40;I\-v\\nu&#41;&#41;\. Its actual prescribed boundary corner is
+
+&#91;
+Q\_\{ij\}=&#91;\\beta\_i=\\gamma\_j&#93;p\_\{R\_i\}\\xi\_\{C\_j\}
+\+&#91;R\_i=C\_j&#93;v\_\{\\beta\_i\}\\nu\_\{\\gamma\_j\}
+\-p\_\{R\_i\}\\xi\_\{C\_j\}v\_\{\\beta\_i\}\\nu\_\{\\gamma\_j\}\.
+&#93;
+
+On the nonzero\-coordinate open set, diagonal row and column scaling gives
+
+&#91;
+M\_\{ij\}=x\_\{R\_i\}&#91;R\_i=C\_j&#93;\+y\_\{\\beta\_i\}&#91;\\beta\_i=\\gamma\_j&#93;\-1,
+\\quad x\_r=&#40;p\_r\\xi\_r&#41;^\{\-1\},\\quad y\_t=&#40;v\_t\\nu\_t&#41;^\{\-1\}\.
+&#93;
+
+Let each row of &#40;F&#41; record its first\-factor vertex, second\-factor vertex, and a constant coordinate; define &#40;G&#41; similarly from the column labels\. Then
+
+&#91;
+M=F\\operatorname\{diag\}&#40;x\_0,\\ldots,x\_\{46\},y\_0,\\ldots,y\_\{44\},\-1&#41;G^T\.
+&#93;
+
+There are 93 coefficient coordinates\. The actual large projector has corner &#40;\-Q&#41;; its sign and these diagonal scalings preserve the ordered pivot conditions\.
+
+## 3\. Exact zero identities and nonzero pivots
+
+For matrices &#40;U,V&#41; with &#40;e&#41; rows, a diagonal matrix &#40;Z&#41;, and a partition &#40;E=X\\sqcup Y&#41; of the coefficient coordinates,
+
+&#91;
+\\operatorname\{rank\}&#40;UZV^T&#41;
+\\leq\\operatorname\{rank\}&#40;U\_X&#41;\+\\operatorname\{rank\}&#40;V\_Y&#41;\.
+&#93;
+
+To prove this, split the product into its &#40;X&#41; and &#40;Y&#41; summands, bound the first by its left factor and the second by its right factor, and use rank subadditivity\. If the sum is less than &#40;e&#41;, the determinant vanishes identically in every diagonal weight\. A Schur entry equals an augmented minor divided by the nonzero selected prefix minor, up to sign; this proves the required ordered zero\.
+
+The proposed pivot sequence is
+
+&#91;
+&#40;0,90&#41;;\\quad&#40;i,i\+46&#41;\\ &#40;1\\leq i\\leq43&#41;;
+&#93;
+&#91;
+&#40;44,46&#41;,&#40;45,45&#41;,&#40;46,44&#41;,&#40;47,43&#41;,&#40;48,42&#41;,&#40;49,41&#41;;
+&#93;
+&#91;
+&#40;i,i\-46&#41;\\ &#40;50\\leq i\\leq86&#41;;
+\\quad&#40;87,3&#41;,&#40;88,2&#41;,&#40;89,1&#41;,&#40;90,0&#41;\.
+&#93;
+
+Every singleton uses the largest remaining column\. For each available column strictly to the right of a pivot in either long run, `corner.json` records an explicit coefficient partition with rank sum smaller than the augmented minor size\. There are exactly
+
+&#91;
+\\binom\{43\}\{2\}\+\\binom\{37\}\{2\}=1569
+&#93;
+
+such minors\. The independent verifier reconstructs their complete required set and checks **3,138 integer ranks** by elimination with gcd reduction\. Therefore the zero statements are polynomial identities, not finite\-field samples\. The normalization constraints are not needed for these zeros\. The forest/matroid search only finds the partitions; the final implication depends on the independently checked integer ranks and the displayed lemma\.
+
+For nonvanishing, take the exact rational witness
+
+&#91;
+p\_r=v\_t=1,\\quad
+\\xi\_r=\\frac\{&#40;r\+1&#41;^2\}\{\\sum\_\{s=1\}^\{47\}s^2\},\\qquad
+\\nu\_t=\\frac\{&#40;t\+1&#41;^3\}\{\\sum\_\{s=1\}^\{45\}s^3\}\.
+&#93;
+
+Both normalizations hold\. The certificate saves every nonzero pivot value, and the independent verifier reconstructs the entire matrix over &#40;\\mathbb Q&#41;, repeats elimination, and checks all 91 values and their positions\. Thus every required prefix minor is a nonzero rational function on the actual normalized projector family\.
+
+Any rank\-one projector is rationally conjugate to this normalized witness\. Consequently, for each physical data occurrence the required nonzero minors are nonzero rational functions of the same free &#40;L\_a,L\_b&#41; factors used by the inherited auxiliary and ordinary local corners\. Their finite product, including all inherited minors and basis determinants, is nonzero on the irreducible rational family\. There is therefore one simultaneous rational basis\. This does not assert that the displayed witness itself serves every occurrence\. The universal zero identities impose no incompatible specialization\. The retained address\-prime argument avoids the finitely many bad denominators and minors\.
+
+## 4\. Contiguous blocks and the complete characteristic
+
+The first new run uses rows 1–43 and physical columns 2071–2113\. The second uses rows 50–86 and columns 2028–2064\. The untouched large\-projector middle is 91–2023, of width 1933\. These are disjoint consecutive intervals in the retained order\. The inherited ordered\-climb lemma therefore compiles each run as one recursive child without gathering, reversal, or a different per\-edge basis\.
+
+Each of the &#40;2N&#41; data macros has profile
+
+&#91;
+\\boxed\{11\\text\{ singletons\};\\ 43,37,1933\},
+\\qquad11\+43\+37\+1933=2024=m\-d\.
+&#93;
+
+The complete physical accounting is:
+
+|Class                        |Copies|Child widths           |
+|-----------------------------|-----:|-----------------------|
+|Axis-47 auxiliary            |(B_a) |47, 2021               |
+|Axis-45 auxiliary            |(B_b) |45, 2025               |
+|Data macro, both orientations|(2N)  |eleven 1s, 43, 37, 1933|
+|Axis-47 growth               |(2N)  |1, 45                  |
+|Axis-45 growth               |(2N)  |1, 43                  |
+|Paid copy correction         |(N)   |1                      |
+
+Additionally, each producer histogram entry &#40;H\_\{h,r\}&#41; is replicated &#40;N/v\_h&#41; times\. If &#40;2r\>h&#41;, its profile is &#40;h\-r&#41; singletons and one child of width &#40;2r\-h&#41;; otherwise it is &#40;r&#41; singletons\. These entries account for all retained local transitions\. All widths are proper\. The largest is 2025\. The generated full histogram has total weighted mass exactly &#40;s&#41;, and its singleton count still includes the full &#40;N&#41; correction\.
+
+Set
+
+&#91;
+a\_b=\\frac\{16381568\}\{10^\{12\}\}=\\frac\{127981\}\{7812500000\}\.
+&#93;
+
+The rational characteristic check proves
+
+&#91;
+\\sum\_t\\frac\{n\_t\}\{W\}&#40;t/m&#41;^\{1\-a\_b\}<1,
+&#93;
+
+with certified slack greater than &#40;1\.96\\times10^\{\-13\}&#41;\. It upper\-bounds each logarithm by the positive\-tail atanh series retained in PR31, then applies
+
+&#91;
+e^u\\leq1\+u\+\\frac\{u^2\}\{2&#40;1\-u/3&#41;\},\\qquad0\\leq u<1\.
+&#93;
+
+Indeed the coefficient inequality &#40;1/k\!\\leq1/&#40;2\\cdot3^\{k\-2\}&#41;&#41; for &#40;k\\geq2&#41; follows inductively, and summing the geometric tail gives this bound\. All final arithmetic is rational\. The next &#40;10^\{\-12\}&#41; bit grid point fails this sufficient enclosure; no impossibility is inferred\. Removing the two new data blocks lowers the certified saving\.
+
+## 5\. Finite bridge and final exponent
+
+The independent complex circuit is exactly PR21’s retained circuit, with saving &#40;a\_c=18/10^6&#41;, &#40;m\_c=21952&#41;, &#40;W\_c=2085111546336&#41;, and maximum child 21924\. Thus the PR23 semantic guard &#40;C\_1=1&#41;, literal scalar charge, and phase operators remain unchanged\.
+
+The new bit halving depth is 16 and its wire exponent is 34\. The complex values remain 544 and 41\. Therefore the product\-stock coefficient is
+
+&#91;
+16\\cdot34\+544\\cdot41=22848,
+&#93;
+
+and the retained &#40;p^\{47000\}&#41; stock suffices because
+
+&#91;
+47000\-\\frac\{51\}\{25\},22848=\\frac\{9752\}\{25\}\>0\.
+&#93;
+
+The paid correction continues to use its existing role stream, not a new row index\.
+
+Choose &#40;\\beta=1/20&#41;\. The complex leaf saving is now
+
+&#91;
+&#40;1\-\\beta&#41;a\_c=17\.1\\times10^\{\-6\}\>a\_b\.
+&#93;
+
+This is a legal choice in the parameterized inherited assembly\. The stopped\-leaf cutoff is recomputed using this new &#40;\\beta&#41;; it is not reused from PR31\. No complex circuit improvement is asserted\.
+
+For &#40;h=10^\{\-8\}&#41;, put
+
+&#91;
+q=a\_b&#40;1\-2h&#41;,\\quad c=q&#40;1\+h&#41;,\\quad
+\\epsilon=&#40;1\-h&#41;/&#40;1\+c\+q&#41;,\\quad G=\\epsilon q,
+&#93;
+&#91;
+\\lambda’=1\-q,\\quad\\lambda=&#40;1\-a\_b\+\\lambda’&#41;/2,
+\\quad r=&#40;G\+1\-\\epsilon&#41;/2,\\quad\\delta=h/8\.
+&#93;
+
+The seven inherited assembly margins are
+
+&#91;
+1\-\\epsilon&#40;1\+c&#41;,\\ a\_b,\\ G,\\ a\_b,
+\\min&#40;1\-\\epsilon\-\\delta,r\-\\delta&#41;,\\ 1\-\\epsilon\-\\delta,\\ \\epsilon\.
+&#93;
+
+All **47 strict inequalities** are recomputed exactly\. Their minimum among these seven margins is &#40;G&#41;, with
+
+&#91;
+G\-\\frac\{1638103\}\{10^\{11\}\}\>8\.14\\times10^\{\-13\}\>0\.
+&#93;
+
+The certificate also recomputes the compressed eventual cutoffs for the finite bridge, row stock, and stopped leaves\. The remaining qualitative eventual thresholds and all inherited analytic/tape hypotheses are explicitly retained\. Strict logarithmic absorption then gives the stated conditional exponent\.
+
+## Attribution
+
+This follow\-up changes dimensions and certifies the resulting finite interfaces\. Credit Rohan Arun for PR31’s weight\-independent rank\-partition corner method and independent audit; Zhihao Chen &#40;jacklightChen&#41; for PR29’s compatible unequal two\-stage construction and PR21/23 analytic composition; Aurel Prosz &#40;Paureel&#41; for the two\-stage topology and paid correction; icekylinx for the retained\-total producer and common\-basis family; Swapnil Jain for the linked two\-stage development; RaD/hipotures for semantic and bulk analytic ingredients; eumemic and all earlier contributors listed in the inherited NOTICE\. Prior OpenAI assistance attributions remain intact\.
