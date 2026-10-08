@@ -1,3 +1,11 @@
+# Conditional saving 4.151607798e-5 from annealed point orders
+
+**κ = 4151607798/10^14 = 4.151607798×10⁻⁵ > 2^-15**, conditional as in PR #47:
+**0.5373% above PR #50**. Per-group point orders, found by simulated annealing on
+the role count, cut R from 36,656 to 36,164 at h=23 and from 48,398 to 47,722 at
+h=25. See [research/annealed-orders](research/annealed-orders/README.md) and run
+`make annealed-orders-verify`.
+
 # Conditional saving 4.105106623e-5 from hill-climbed producers
 
 **κ = 4105106623/10^14 = 4.105106623×10⁻⁵ > 2^-15**, conditional on OpenAI's

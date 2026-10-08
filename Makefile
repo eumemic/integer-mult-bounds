@@ -2,7 +2,7 @@
 
 verify:
 	$(MAKE) copied-fixed-verify
-	$(MAKE) climbed-producers-verify
+	$(MAKE) annealed-orders-verify
 	$(MAKE) copied-centers-verify
 	$(MAKE) structured-bulk-verify
 	$(MAKE) endpoint-gauge-producer endpoint-gauge-certificate
@@ -213,3 +213,13 @@ climbed-producers-check:
 	python3 -m unittest discover -s tests -p 'test_climbed_producers.py' -v
 
 climbed-producers-verify: climbed-producers-producer climbed-producers-check
+
+.PHONY: annealed-orders-verify annealed-orders-producer annealed-orders-check
+annealed-orders-producer:
+	python3 research/annealed-orders/producer.py
+
+annealed-orders-check:
+	python3 research/annealed-orders/witness.py --output research/annealed-orders/certificate.json
+	python3 -m unittest discover -s tests -p 'test_annealed_orders.py' -v
+
+annealed-orders-verify: annealed-orders-producer annealed-orders-check
