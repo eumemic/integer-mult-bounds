@@ -1,20 +1,31 @@
 # Padded three-stage covers with sequential triple sharing
 
-Conditional **κ = 206798116851/500000000000000 = 4.13596233702e-4**.
-This is about 31.467% above PR130's 3.146011e-4. The exact complex saving is
-**413939067/10¹²**. The weighted bit supplier now uses the same completed
-triple construction in dimension 69.
+Conditional **κ = 43370585873/100000000000000 = 4.3370585873e-4**.
+This is about 4.86% above the h = 24 padded construction (4.13596233702e-4)
+and 37.86% above PR130's 3.146011e-4. The exact complex saving is
+**217041417/(5·10¹¹)**; the complex side binds. The weighted bit supplier
+uses the same completed triple construction in dimension 69, unchanged.
+
+The local DAG has h = 20 (v = 1,140 triples, centre denominator h - 3 = 17).
+It replaces PR117's h = 24 DAG in `references/three-stage-cover/pr117/`,
+which keeps PR117's replay code, license and notice. PR130's port and
+certificate, the PR131 local compiler, reflection audit and finite geometry,
+and the padded checks and certificate below are h-generic: every h = 24 pin
+is replaced by the value derived from the matched PR130 row of this DAG
+(divisor h - 3, readout chunks bounded by 2(h - 3), cover dimension 3h).
+No check is removed. PR130's own certificate for this DAG gives
+κ = 3.334474e-4.
 
 The construction places the independently replayed physical complex word
-from PR129 inside PR130's three-stage cover. Its 28,705 virtual roles use
-26,597 physical scratch roles after 2,108 compensated birth-cut reuses. The
+from PR129 inside PR130's three-stage cover. Its 15,672 virtual roles use
+14,606 physical scratch roles after 1,066 compensated birth-cut reuses. The
 full source/workspace chronology and inverse retain every compensation.
-The local source inventory has 542 distinct frames, including 2,342 roles
-with nonzero source gauges. The physical source dimensions sum to 24,221.
-There are 4,450 deferred virtual roles, including all 2,108 compensated
-recipients; 1,318 deferred gauges are degenerate.
+The local source inventory has 336 distinct frames, including 1,354 roles
+with nonzero source gauges. The physical source dimensions sum to 10,952.
+There are 2,420 deferred virtual roles, including all 1,066 compensated
+recipients; 844 deferred gauges are degenerate.
 
-The first local pass changes 3,521 common mixer frames using
+The first local pass changes 1,748 common mixer frames using
 the complete arbitrary binary subspaces permitted by PR130's Clifford
 theorem. Sources, roots, source gauges and compensated reuse handoffs stay
 fixed. Every resulting chain is checked by exact containment. The compiler
@@ -34,18 +45,18 @@ deferred chronology are regenerated before the complete reflected replay.
 The descent ends only at a checked fixed point, with no remaining improving
 single-gauge, grouped-gauge or operation-frame move from its search families.
 
-The complex cover has dimension 72, with three orthogonal active spaces of
-24 coordinates. Each cell of three invocation vertices pays 91,935
-persistent roles, recursive rank 6,612,144 and deficit 7,176. Every local
+The complex cover has dimension 60, with three orthogonal active spaces of
+20 coordinates. Each cell of three invocation vertices pays 50,658
+persistent roles, recursive rank 3,036,060 and deficit 3,420. Every local
 child, including all source and target data moves, is retained nine times.
 Each stage has a separate shared auxiliary bank. A physical source frame
 of dimension s pays three exterior children of rank **3s**; zero-width tails
-still require their paid rank-zero adapters. The largest child is 66.
+still require their paid rank-zero adapters. The largest child is 54.
 
-The original 70-dimensional port transitions extend by the identity on two
+The original 58-dimensional port transitions extend by the identity on two
 padding coordinates. After the three stages, both data banks pay a rank-two
-finish into the full 72-dimensional endpoint. This is 12,144 extra rank-two
-children per three-vertex cell. The port audit checks all 2,024 triples and
+finish into the full 60-dimensional endpoint. This is 6,840 extra rank-two
+children per three-vertex cell. The port audit checks all 1,140 triples and
 both exact endpoint transitions; their cost is included in the ledger.
 
 Every core finishes its entire scalar and inverse word before its partner
@@ -77,7 +88,7 @@ receipt must reproduce byte for byte. Verification leaves its source tree
 unchanged and has no options to omit these stages.
 
 The finite geometry check covers every subspace and ordered pair through
-dimension four, including degenerate subspaces, and all 2,024 actual h24
+dimension four, including degenerate subspaces, and all 1,140 actual h20
 triple ports. It checks symplectic adapters, transition and dirty-tail ranks,
 reflected identities and data-frame seams. The separate padded audit checks
 the order-three orthogonal permutation, every physical source frame in all

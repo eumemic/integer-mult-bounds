@@ -55,7 +55,7 @@ def verify(path, matching, ann, lift, word, selected, record):
     assert at==q
     # Every input appears in h-3 disjoint centers: exact divisor 21. For
     # overlap k, twice the signed output coefficient is 2-(3-k)+[k=0]-[k=2].
-    assert h-3==21
+    assert h-3>0 and (h-3)%2==1
     assert [2-(3-k)+(k==0)-(k==2) for k in range(4)]==[0,0,0,2]
     arcs=matching['matching_arcs']
     assert len(arcs)==matching['matched']
@@ -156,7 +156,7 @@ def verify(path, matching, ann, lift, word, selected, record):
     for actual,key in [(Y,'target_data_histogram'),(birth,'selected_rank_histogram'),(residual,'partial_first_transition_histogram')]:
         assert dict(actual)=={int(k):v for k,v in record[key].items()},key
     return dict(scalar_supports_exact=True, signed_coefficients_exact=True,
-                divisor=21, generalized_lagrangian_frames=True,
+                divisor=h-3, generalized_lagrangian_frames=True,
                 old_frames_contained=True, dependency_and_carrier_nesting=True,
                 physical_M_replayed=True, physical_frame_transitions=transitions,
                 full_backward_intersections=True, full_source_intersections=True, positive_rank_ledger_recounted=True,

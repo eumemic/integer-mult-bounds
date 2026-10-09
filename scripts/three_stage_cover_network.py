@@ -28,11 +28,11 @@ COARSE = Q(747,2000000)
 ATOM = Q(1,1000)
 OLD = Q(384599,10**10)
 AB = (1-ATOM)*COARSE+ATOM*OLD
-AC = Q(786999,2500000000)
+AC = Q(834176,2500000000)
 BAD = Q(1,10**16)
 PHASE_STOP = Q(1,10**6)
 ASSEMBLY_BIT = min(AB,(1-PHASE_STOP)*AC-Q(1,10**10))
-KAPPA = Q(3146011,10**10)
+KAPPA = Q(3334474,10**10)
 GRID = 1 << 120
 
 
@@ -96,10 +96,10 @@ def bit_certificate(row):
 
 def complex_certificate(row):
     h,v,R,ell = (row[k] for k in ('h','v','R','loss'))
-    require((h,v,R,ell) == (24,comb(24,3),28705,552),'Complex local dimensions')
+    require((h,v,R,ell) == (20,comb(20,3),15672,380),'Complex local dimensions')
     require(R == row['c']+row['q']-row['matched'],'Compatible roles')
     selected = {int(r):n for r,n in row['selected_rank_histogram'].items()}
-    require(sum(selected.values()) == row['selected_roles'] == 4599,'Partial gauges')
+    require(sum(selected.values()) == row['selected_roles'] == 2637,'Partial gauges')
     m,w,C = 3*h-2,2*v+3*R,Counter()
     C[m-h] += 3*(R-sum(selected.values()))
     for r,n in selected.items():
@@ -203,7 +203,7 @@ def main():
     p.add_argument('--output',type=Path,default=ROOT/'certificates/three-stage-cover-network.json')
     args = p.parse_args()
     args.output.write_text(json.dumps(js(certificate()),indent=2,sort_keys=True)+'\n')
-    print('PASS kappa=3146011/10000000000 = 3.146011e-4; both moments, rare-class fallback, finite router, 47 strict constraints')
+    print('PASS kappa=1667237/5000000000 = 3.334474e-4; both moments, rare-class fallback, finite router, 47 strict constraints')
 
 
 if __name__ == '__main__':

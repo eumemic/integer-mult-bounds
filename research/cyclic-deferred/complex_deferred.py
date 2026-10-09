@@ -15,8 +15,8 @@ The changed deferred readout and injection chronology is replayed in full.
 PR117 credits its searched DAG to eumemic with Anthropic Claude assistance;
 this experiment imports and replays that witness unchanged. PR110/PR114
 saturation and exact finite checks are applied to the resulting graph.
-Logical readout macros are realized as signed numerator/42 chunks of magnitude
-at most one. The literal audit expands and charges those same-frame shears,
+Logical readout macros are realized as signed numerator/(2(h-3)) chunks of
+magnitude at most one (numerator/42 at h=24). The literal audit expands and charges those same-frame shears,
 checks exact reconstruction, and reverses the chunks under reflection.
 Inherited Avi Eisenberg, Rohan Arun, icekylinx and Swapnil Jain credits retained.
 This integration prepared with OpenAI Codex assistance. Apache-2.0.
@@ -353,10 +353,13 @@ def frame_smallest_hull(L, ambient):
     return L
 
 def main():
+    # The matched PR130 row of this DAG fixes h and every graph pin below.
+    row = json.loads((ROOT / 'certificates/three-stage-cover-complex-input.json').read_text())
     with tempfile.TemporaryDirectory(prefix='deferred-stopped-') as work:
         prefix = Path(work) / 'complex'
-        build(24, prefix, central_disjoint=24)
+        build(row['h'], prefix, central_disjoint=row['h'])
         h, v, n, q, args, core, cover, roots, kind, active, ranks, types = load(prefix)
+    require((h, v) == (row['h'], row['v']) and (h - 3) % 2 == 1, 'row dimensions (odd decoder divisor h-3)')
     trip = list(combinations(range(h), 3)); require(len(trip) == v, 'triple count')
     m = h * h; N = v * v; FULL = (1 << h) - 1
     tmask = [sum(1 << p for p in T) for T in trip]
@@ -390,7 +393,7 @@ def main():
     mate = hopcroft_karp(left, adj)
     links = {x: r for x, r in mate.items() if r is not None}
     R = c_add + q - len(links)
-    require((c_add,q,len(links),R)==(91770,8120,71185,28705),'selected PR117 graph')
+    require((c_add,q,len(links),R)==(row['c'],row['q'],row['matched'],row['R']),'selected PR117 graph')
     print('PR117 graph matched', c_add, q, len(links), R, flush=True)
     linked_use = {(y, k): x for x, (y, k) in links.items()}
 
@@ -547,6 +550,7 @@ def main():
      for j,i in enumerate(events):prev[i,s]=events[j-1]if j else None;after[i,s]=events[j+1]if j+1<len(events)else None
     # Frozen IEEE-754 search weights remove platform libm variation.
     vals=[float.fromhex(x) for x in ['0x0.0p+0', '0x1.0000000000000p+0', '0x1.fff611fabad2cp+0', '0x1.7ff4324fbceecp+1', '0x1.ffec2426c27bdp+1', '0x1.3ff197310b8c8p+2', '0x1.7fecc00663620p+2', '0x1.bfe79c1e23586p+2', '0x1.ffe2368416067p+2', '0x1.1fee4bbd449aep+3', '0x1.3feb62b54ad1bp+3', '0x1.5fe862b99e2f4p+3', '0x1.7fe54de202531p+3', '0x1.9fe225ec96cafp+3', '0x1.bfdeec529ef76p+3', '0x1.dfdba257523b3p+3', '0x1.ffd84912b47dep+3', '0x1.0fea70bcdaf4fp+4', '0x1.1fe8b63233d76p+4', '0x1.2fe6f54967551p+4', '0x1.3fe52e5858b9ap+4', '0x1.4fe361ac5190ep+4', '0x1.5fe18f8b3cb6dp+4', '0x1.6fdfb834a8020p+4', '0x1.7fdddbe2990a6p+4']]
+    require(h < len(vals), 'frozen search weights cover every rank increment up to h')
     for turn in range(5):
      changes=0;delta=0
      for i in (reversed(range(len(ops)))if turn%2==0 else range(len(ops))):
@@ -601,7 +605,7 @@ def main():
     print('Compensated birth reuse', len(reuse_pairs), 'physical roles', len(live), flush=True)
 
     # ------------------------------------------------------------ C. replay with arbitrary scratch and data
-    inv = lambda a: pow(a % P, P - 2, P); HALF = inv(2); I21 = inv(21)
+    inv = lambda a: pow(a % P, P - 2, P); HALF = inv(2); IDEC = inv(h - 3)  # centre decoder 1/(h-3)
     cvec = [None] * Rr; dpart = [dict() for _ in range(Rr)]
     for s, j in role_root.items():
         if kind[j]: c = [0] * h; c[centre_of[j]] = 1; cvec[s] = c
@@ -615,7 +619,7 @@ def main():
     for o in reversed(ops):
         if o[0] == 'add': addc(o[2], o[1])
         elif o[0] == 'copy': addc(o[1], o[2])
-    scatter = [[(I21 - (HALF if i in trip[t] else 0)) % P for t in range(v)] for i in range(h)]
+    scatter = [[(IDEC - (HALF if i in trip[t] else 0)) % P for t in range(v)] for i in range(h)]
     def readout(y, s, value, sign, seed=False):
         # Logical readout macro: the literal audit combines its exact rational
         # target coefficients and expands each numerator/42 into bounded shears.

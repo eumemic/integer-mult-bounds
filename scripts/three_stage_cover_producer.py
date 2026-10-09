@@ -34,7 +34,7 @@ def regenerate(work, expected, compiler):
     for name,digest in source['files'].items():
         assert hashlib.sha256((reference/name).read_bytes()).hexdigest()==digest, 'Source binding differs: '+name
     witness=reference/'dag.json.gz'
-    assert hashlib.sha256(witness.read_bytes()).hexdigest()=='3c034d0aae388ef567a454826f4f48b26fd8a94c71e8ffed4835271b349a783b'
+    assert hashlib.sha256(witness.read_bytes()).hexdigest()=='b95a7bf02b483c6cb2a65d3302c5757d93801d24f8fb33f694093736aad9f884'
     spec=spec_from_file_location('pr117_replayed',reference/'replayed.py')
     module=module_from_spec(spec);spec.loader.exec_module(module)
     scalar=module.build(witness,work/'selected')

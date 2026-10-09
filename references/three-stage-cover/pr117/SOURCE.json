@@ -3,10 +3,10 @@
   "files": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "NOTICE": "a0030510cd3b5334fb113eae759aadd2c25951bd353dfb69ad9cb780ae5adf30",
-    "dag.json.gz": "3c034d0aae388ef567a454826f4f48b26fd8a94c71e8ffed4835271b349a783b",
-    "replayed.py": "99c1e3694ae06a7ce7a370b04ecb45ea3fcfe69a6e6e7f4c4606e0a6c74c3184"
+    "dag.json.gz": "b95a7bf02b483c6cb2a65d3302c5757d93801d24f8fb33f694093736aad9f884",
+    "replayed.py": "09643018ba0b88eb51a59a4fc0c323597d11d90cc7067fd7029267ec15202a33"
   },
   "repository": "eumemic/integer-mult-bounds",
-  "scope": "Unchanged selected positive DAG, support/label replay and source-specific license/notices.",
+  "scope": "PR117 support/label replay (generalized to divisor h-3) and source-specific license/notices; dag.json.gz is the h=20 positive DAG from producer lanes descended from the PR117 producer (eumemic, Anthropic Claude assistance).",
   "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/117"
 }

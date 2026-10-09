@@ -112,7 +112,8 @@ class CoverControls(unittest.TestCase):
 
     def test_local_cover_telescoping(self):
         p = certificate.cover_profile()
-        self.assertEqual(p['roles_per_cell'] * p['m'] - p['rank_per_cell'], 7176)
+        self.assertEqual(p['roles_per_cell'] * p['m'] - p['rank_per_cell'],
+                         3 * (2 * p['v'] - 3 * p['center_loss_per_invocation']))
         self.assertEqual(sum(int(r) * n for r, n in p['child_multiplicities'].items()), p['rank_per_cell'])
         self.assertEqual(p['R'] + p['reused_roles'], p['virtual_R'])
 

@@ -8,10 +8,12 @@ from hashlib import sha256
 from pathlib import Path
 from replayed_producer import build as replayed_build
 
-WITNESS_SHA256 = '3c034d0aae388ef567a454826f4f48b26fd8a94c71e8ffed4835271b349a783b'
+WITNESS_SHA256 = 'b95a7bf02b483c6cb2a65d3302c5757d93801d24f8fb33f694093736aad9f884'
 
 def build(h, prefix, central_disjoint, base=2):
-    assert (h, central_disjoint, base) == (24,24,2)
+    assert central_disjoint == h and base == 2
     witness=Path(__file__).resolve().parent/'inputs/complex-dag.json.gz'
     assert sha256(witness.read_bytes()).hexdigest() == WITNESS_SHA256, 'PR117 DAG pin mismatch'
-    return replayed_build(witness,prefix)
+    result = replayed_build(witness,prefix)
+    assert result['h'] == h, 'row and witness dimensions differ'
+    return result

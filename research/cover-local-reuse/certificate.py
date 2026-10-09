@@ -10,7 +10,7 @@ from collections import Counter
 from fractions import Fraction as Q
 from hashlib import sha256
 import json
-from math import prod
+from math import comb,prod
 from pathlib import Path
 import sys
 if sys.flags.optimize:
@@ -37,9 +37,11 @@ def digest(path):return sha256(path.read_bytes()).hexdigest()
 
 def cover_profile():
     local=load('complex-profile.json');audit=load('reflection-audit.json')
+    rec=json.loads((ROOT/'certificates/three-stage-cover-complex-input.json').read_text())
     h,v,R=(local[k]for k in('h','v','R'))
-    assert (h,v,R)==(24,2024,26597)
-    assert local['virtual_R']==28705 and local['reused_roles']==2108
+    assert (h,v)==(rec['h'],rec['v']) and v==comb(h,3)
+    assert (local['additions'],local['roots'],local['links'])==(rec['c'],rec['q'],rec['matched'])
+    assert local['virtual_R']==rec['R'] and local['reused_roles']==rec['R']-R
     assert local['generalized_lagrangian_frames'] is True
     assert audit['generalized_lagrangian_frames'] is True
     assert local['generalized_source_gauges'] is True
@@ -78,8 +80,9 @@ def cover_profile():
     children.update(exteriors)
     data_finishes=Counter({2:6*v});children.update(data_finishes)
     rank=sum(r*n for r,n in children.items())
-    assert w*m-rank==3*(2*v-3*ell)==7176
-    assert max(children)==66 and all(0<r<m and n>0 for r,n in children.items())
+    assert w*m-rank==3*(2*v-3*ell)
+    assert max(children)==max([*H,2]+[3*len(row['basis'])for row in inventory])
+    assert all(0<r<m and n>0 for r,n in children.items())
     independent=padded_profile(local)
     assert independent['child_multiplicities']==dict(sorted(children.items()))
     receipt=json.loads((HERE/'padded-geometry.json').read_text())
@@ -91,7 +94,7 @@ def cover_profile():
                 'both_data_bank_finishes_paid'):
         assert receipt[key] is True,key
     assert receipt['stages_shared']==[1,2,3]
-    assert receipt['actual_h24_ports_checked']==v
+    assert receipt['actual_ports_checked']==v
     assert receipt['data_finish_rank_per_bank']==2 and receipt['data_finish_ports_per_cell']==6*v
     assert receipt['checker_sha256']==digest(HERE/'padded_checks.py')
     assert set(receipt['source_sha256'])=={
@@ -138,7 +141,7 @@ def exact():
     # Use virtual roles in the source-witness scalar reserve: compensated
     # recipients still have readouts even though they have no persistent bank.
     row=json.loads((ROOT/'certificates/three-stage-cover-complex-input.json').read_text())
-    assert row['R']==p['virtual_R']and row['total_M_operations']==118451
+    assert (row['h'],row['v'],row['R'])==(p['h'],p['v'],p['virtual_R'])
     bridge=inherited.finite_bridge(phase,row)
     # Charge every completed auxiliary tail, including rank-zero tails, and
     # both finishing data maps explicitly in addition to the inherited router.
