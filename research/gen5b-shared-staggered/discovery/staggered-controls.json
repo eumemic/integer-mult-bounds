@@ -1,0 +1,117 @@
+{
+  "status": "PASS_ALL16_STAGGERED_GATE_OMISSION_CONTROLS",
+  "controls": [
+    {
+      "dependent": 855,
+      "donor": 854,
+      "coefficient": -1,
+      "omitted_record": 697379,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 855,
+      "donor": 854,
+      "coefficient": 1,
+      "omitted_record": 697446,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 911,
+      "donor": 910,
+      "coefficient": -1,
+      "omitted_record": 697380,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 911,
+      "donor": 910,
+      "coefficient": 1,
+      "omitted_record": 697439,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 959,
+      "donor": 958,
+      "coefficient": -1,
+      "omitted_record": 697381,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 959,
+      "donor": 958,
+      "coefficient": 1,
+      "omitted_record": 697432,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 999,
+      "donor": 998,
+      "coefficient": -1,
+      "omitted_record": 697382,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 999,
+      "donor": 998,
+      "coefficient": 1,
+      "omitted_record": 697425,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1031,
+      "donor": 1030,
+      "coefficient": -1,
+      "omitted_record": 697383,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1031,
+      "donor": 1030,
+      "coefficient": 1,
+      "omitted_record": 697418,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1055,
+      "donor": 1054,
+      "coefficient": -1,
+      "omitted_record": 697384,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1055,
+      "donor": 1054,
+      "coefficient": 1,
+      "omitted_record": 697411,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1071,
+      "donor": 1069,
+      "coefficient": -1,
+      "omitted_record": 697385,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1071,
+      "donor": 1069,
+      "coefficient": 1,
+      "omitted_record": 697398,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1079,
+      "donor": 1077,
+      "coefficient": -1,
+      "omitted_record": 697386,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    },
+    {
+      "dependent": 1079,
+      "donor": 1077,
+      "coefficient": 1,
+      "omitted_record": 697391,
+      "status": "REJECTED_INCOMPLETE_ENDPOINT"
+    }
+  ]
+}

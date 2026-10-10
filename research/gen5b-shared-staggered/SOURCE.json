@@ -1,0 +1,85 @@
+{
+  "assistance": "Substantial OpenAI Codex assistance; original contributor disclosures preserved.",
+  "changes_from_weighted": {
+    "NOTICE.md": {
+      "after": "a2660ab80d8a03fbeb3131db84d3062c1590369724550de83e86dda213014b55",
+      "before": "6abb97ef57385fdfc970b38bbe330a760d807833201491b6d13cd29b138b77b2"
+    },
+    "PR-STATEMENT.md": {
+      "after": "56f138364c1b4a04136eec4681fab436ff9535616df9549b9e5459c3fdbf8fe7",
+      "before": "2d2f790a7e08b93dba93882bfbab93eed985acb659fec0e2da0e13b162ef9a9d"
+    },
+    "PROOF.md": {
+      "after": "bb108dbab94dba0e4a2541360edf7a9b50108d7eca287e4550ac57165ea53646",
+      "before": "1136962d02b5a392a601141cdb2d1079184601dcb9853972e780fb60a7fec27c"
+    },
+    "README.md": {
+      "after": "56f138364c1b4a04136eec4681fab436ff9535616df9549b9e5459c3fdbf8fe7",
+      "before": "443a14764c391ccecdd8399dc5a7267a16d4996da6be530707f5df34f4be8e44"
+    },
+    "code/global_lowering.py": {
+      "after": "639b79423406eefdd1c6902bcc4f1d659c44f347bd28fce2e6cbbd37b30b3848",
+      "before": "c2b68d388012d0a997a90215e4aed8028cfaa2a8feb1412b563c3ec0d642d407"
+    },
+    "descent2-selection.json": {
+      "after": "eab407736aa3db51059a291b0f2af9e7435b14dc1ce24542379a63fcb20faf64",
+      "before": "b38f1cf6f8a6f0f53874e0bb7f1ddbb3a8bd57eadfa38e432d543ae8f2f8813b"
+    },
+    "expected/kernel-pins.json": {
+      "after": "48752a52ceb7d79aa34d33bdc85e76c6179b67979aebec4cd2ba0868bc3fcdff",
+      "before": "9cbf1cb271cf6a32246630418d6ff86d23967e79ca687216049e970efabc7e90"
+    },
+    "kernel-selection.json": {
+      "after": "5396adbd22b67554c1cb444891b834618a05ac63578afb5e094ed29ba730bee2",
+      "before": "3de6647a97efda200269cee06446ee15944b197935b531efde61f4012526cc0d"
+    },
+    "restore-selection.json": {
+      "after": "1236e51649cb87a0dcc2de83c6a8c47f535d1e9654bce1aef367a8ca4ca8a79b",
+      "before": "3b720a5aeb38d6930bc11fdf91816d31fe694a4f13b7ba29311d6c970fbab3be"
+    },
+    "sink-selection.json": {
+      "after": "66aed542f9aa09d1cd7c1e341a0a5b966e1f97f05a95fed0bbb8655f7a916958",
+      "before": "daf20cffc8de40048473088195827c8a0a86a5190ddbaca8c5162257453e0ed6"
+    },
+    "target-selection.json": {
+      "after": "bb0c8e3fe1cfca22b00102a62553a4761e7b5811e8b60c59bbed4b1a482bb6a3",
+      "before": "3f700a370847e254d56a387ae73add542403bd8a2fd7352bfd1750eb20c3c3ee"
+    },
+    "target_transform.py": {
+      "after": "f22f830e410dba9fff79e3f84567d85f93e9c89f967dc2b14dc9c75470bb00fb",
+      "before": "150634f980edc4a943e7ed456bf898968060ca6fb23517c909ee2461847bc29d"
+    }
+  },
+  "inputs": [
+    {
+      "commit": "10b40041d4ab8a6610083e95bc571aee3468bca2",
+      "manifest_sha256": "135f3a9c8cdb9b3663832ade632947df54df4bdef633306462451edb712d0c87",
+      "original_notice": "NOTICE-PR275.md",
+      "original_source": "SOURCE-PR275.json",
+      "package": "research/gen5b-weighted-matching",
+      "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/275"
+    },
+    {
+      "commit": "aea3dc9ea40046bda035857dd613c041b977c837",
+      "original_notice": "NOTICE-PR300.md",
+      "package": "research/five-stage-gen5b-full",
+      "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/300"
+    },
+    {
+      "commit": "f4be7cfff0ea3935d454b2cb944ecabc5ac4595a",
+      "original_notice": "NOTICE-PR302.md",
+      "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/302",
+      "witness": "kernel70-witness.json",
+      "witness_sha256": "8b99bb2f0e9f352c303d251009058cc30e7ad4c20b8e32e863afb0ebcc3388b7"
+    }
+  ],
+  "kappa": "4694917335381/6250000000000000",
+  "kappa_scientific": "7.51186773660960e-4",
+  "schema": "gen5b-shared-staggered-provenance/1",
+  "target_transform": {
+    "extension": "triangular staggered close times, eight additional earlier pairs",
+    "original": "PR268 target-prefix mechanism and retained gen5 adaptations",
+    "selection_sha256": "bb0c8e3fe1cfca22b00102a62553a4761e7b5811e8b60c59bbed4b1a482bb6a3",
+    "transform_sha256": "f22f830e410dba9fff79e3f84567d85f93e9c89f967dc2b14dc9c75470bb00fb"
+  }
+}
