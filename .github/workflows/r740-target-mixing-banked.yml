@@ -1,0 +1,37 @@
+name: Verify banked R740 target mixing
+on:
+  push:
+    paths:
+      - 'research/r740-target-mixing-banked/**'
+      - '.github/workflows/r740-target-mixing-banked.yml'
+  pull_request:
+    paths:
+      - 'research/r740-target-mixing-banked/**'
+      - '.github/workflows/r740-target-mixing-banked.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: sudo apt-get update && sudo apt-get install -y libboost-dev
+      - run: python -m pip install -r research/r740-target-mixing-banked/e8-r740-replica32/parent436/requirements.txt
+      - run: python -B research/r740-target-mixing-banked/verify.py "$RUNNER_TEMP/r740-target-mix"
+        env:
+          BOOST_INCLUDE: /usr/include
+          PYTHONDONTWRITEBYTECODE: '1'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: banked-target-mix-${{ matrix.python }}
+          path: |
+            ${{ runner.temp }}/r740-target-mix/*.json
+            ${{ runner.temp }}/r740-target-mix/*.log
