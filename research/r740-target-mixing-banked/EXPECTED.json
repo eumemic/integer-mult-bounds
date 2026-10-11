@@ -1,0 +1,45 @@
+{
+  "content_sha256": "8faf6b8438d4360df161798e1029ccfd6554f9e8a6d2686c08c743e388f74b33",
+  "global": {
+    "template_sha256": "7550c3f93f33fb550ed8fdbaaa93c8241ffa3d90c041fb95de640d9336023c55",
+    "word_sha256": "abe718d32a2fe11c53d28feda415728d837193ac3a46bf18f014f677019842d1",
+    "live": 56739,
+    "physical": 56748,
+    "banks_per_stage": 2891,
+    "entrance_rank_total": 138,
+    "paid_calls": 1289088,
+    "rank_mass": 3621312,
+    "deficit": 9984,
+    "profile": {
+      "1": 708480,
+      "2": 291456,
+      "3": 79488,
+      "4": 90720,
+      "5": 31104,
+      "6": 12096,
+      "7": 27072,
+      "8": 2592,
+      "14": 15360,
+      "28": 15360,
+      "42": 15360
+    },
+    "local_additions": 15260,
+    "emitted_events": 5617440,
+    "emitted_program_sha256": "a6da5f42e65e8f4247418778b6288979f9b76af1fd1ee4fa24c48308f45cc986"
+  },
+  "result": {
+    "bit_lower": "286787253956861582501/250000000000000000000000",
+    "complex_lower": "1183986549206329/1000000000000000000",
+    "kappa": "1145834572824929/1000000000000000000",
+    "bit_invoice": {
+      "prefix_bits": 125,
+      "charged_prefix_bits": 128,
+      "coefficient_bits": 125,
+      "two_level_coefficient_bits": 290,
+      "charged_two_level_coefficient_bits": 512,
+      "row_coefficient": 18355,
+      "live": 56739,
+      "physical": 56748
+    }
+  }
+}
