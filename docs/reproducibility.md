@@ -1,9 +1,10 @@
 # Reproducing the result
 
-The primary artifacts are the [paired-network note](../artifacts/paired-note.pdf),
-[strongest patch](../patches/h50-paired-59.patch), and exact JSON certificates.
-They are conditional on the algorithmic interfaces identified in the
-[dependency audit](audit.md).
+The primary artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
+[combined patch](../patches/compact-control-34.patch), and
+[exact layer certificate](../certificates/compact-control-layer.json).
+They are conditional on the retained algorithmic interfaces and written
+extensions identified in the [review guide](research/compact-control-review.md).
 
 ## Requirements
 
@@ -50,6 +51,54 @@ This command performs these steps:
    h=50 paired-network certificate and independent patch for kappa=2^-59. They
    also check the stopped guard constants and revised Gaussian inequalities;
    these proof models are selected explicitly in the parameter checker.
+   `scripts/prepare_layers.py` records generalized guard and unequal-exponent
+   recurrence estimates, the independent complex-family search, and clearly
+   marked hypothetical sparse-primitive targets in `layer-preparation.json`.
+   This preparation pass does not change the published 2^-59 witness.
+   `scripts/audit_sparse_fusion.py` records finite phase identities, a bounded
+   central-frame screen, and the cost targets for future sparse primitives.
+   Its output is a research audit, not a stronger multiplication certificate.
+   `scripts/audit_fused_block.py` checks a complete parity-butterfly sandwich
+   and records the cut-rank obstruction for coordinate-child/pointwise-only
+   recursion. Its exact identity does not supply a faster multiplication bound.
+   `scripts/audit_short_guards.py` records logarithmic working guards and a
+   reduction to a still-unproved fast gathering routine. Exact address tests
+   check the reduction's maps, not a new tape-time or multiplication bound.
+   `scripts/audit_gather_schedules.py` checks a reversible merge tree, scoped
+   interval-schedule obstructions, and optimistic round-reuse accounting.
+   It does not rule out coded gatherers or certify a new multiplication bound.
+   `scripts/audit_coded_carries.py` checks an exact but linear carry code and
+   small controls for a scoped flat affine-circuit obstruction. The bounded
+   attempt supplies no sublinear recurrence or new kappa.
+   `scripts/audit_cancellation.py` checks the first cancellation circuit's
+   scalar map and dirty-scratch restoration, then records nonorthogonal-path
+   bounds rejecting two topologies under the retained data-stage frames.
+   `scripts/audit_joint_frames.py` reproduces a complete small bit invocation's
+   edge ranks and checks rational controls for the fixed-boundary local
+   optimality proof. It does not certify a stronger multiplication bound.
+   `scripts/audit_compact_controls.py` checks the compact dirty-control address
+   maps, inverses and exceptional repair. `scripts/compact_control_layer.py`
+   records the new conditional `83/10^12 > 2^-34` witness, with reservations,
+   the revised recurrence, independently sized complex motif, generalized
+   guards and all assembly margins. Its general tape claims depend on the
+   written [compact-control proof](../notes/compact-control-note.tex).
+   `scripts/make_compact_control_patch.py` generates the independent combined
+   patch, including the changed global exceptional-stream accounting.
+   `scripts/complex_network.py` builds the compressed complex side circuit of
+   `scripts/complex_circuit.py`, checks every side coefficient, binary label,
+   residual and compiled role in both stage directions, and records the
+   conditional `59/10^11 > 2^-31` witness. `scripts/make_complex_circuit_patch.py`
+   extends the compact-control patch with the new complex construction.
+   `scripts/fast_gaussian.py` checks the fast-resampling witness `1479/10^12`,
+   the exact step inequality behind the bound on powers of the resampling
+   correction, and the Neumann counts; `scripts/make_fast_gaussian_patch.py`
+   extends the compressed-complex patch with the chirped-correlation Gaussian
+   maps, the revised interfaces and the new assembly parameters.
+   `scripts/aligned_bit_network.py` builds the aligned bit circuit of
+   `scripts/bit_circuit.py`, checks every partial output, group total,
+   addition and role frame in both directions, and records the
+   `1624/10^12` witness; `scripts/make_aligned_bit_patch.py` extends the
+   fast-resampling patch with the new bit interface.
    `scripts/research_networks.py` and `scripts/search_network_variants.py`
    record scoped family bounds and clearly marked exploratory scores.
 4. The standard-library unittest suite checks certificate boundaries, selected
@@ -63,8 +112,20 @@ that the checked-in outputs reproduce exactly, run on a clean checkout:
 git diff --exit-code -- certificates patches
 ```
 
+The aligned-bit note builds with `make aligned-bit-note`, the
+fast-resampling note with `make fast-gaussian-note`, the
+compressed-complex note with `make complex-note`, and the compact-control
+note with `make compact-note`. Their statements remain
+conditional on the identified upstream interfaces and supplied written
+extensions. See the
+[current research status](research/current-status.md) before treating older
+research pages or preparation certificates as current conclusions.
+
 The theorem certificates and all-h bound comparisons use `fractions.Fraction`;
-no floating-point result controls their acceptance. The separate exploratory
+no floating-point result controls their acceptance. The fast-resampling tests
+also compare explicit resampling matrices against the power bound at 160
+decimal digits; the certificate itself checks the underlying step inequality
+exactly. The separate exploratory
 higher-subset screen uses floating point to select candidates, then encloses
 their scores exactly; it certifies neither a new construction nor optimality.
 Sampled finite identity tests use fixed random seeds.
@@ -79,7 +140,7 @@ existing one. It leaves the bundled source untouched:
 mkdir -p build
 mkdir build/review
 cp -R upstream/build build/review/build
-git apply --directory=build/review patches/h46-dag-63.patch
+git apply --directory=build/review patches/compact-control-34.patch
 ```
 
 Read `build/review/build/main.tex` and its included sections. The other patches
@@ -90,18 +151,23 @@ are alternatives based on the same original manuscript, not successive commits.
 With Tectonic installed:
 
 ```sh
-make note
+make compact-note
 ```
 
-The result is `artifacts/parameter-note.pdf`. Build the separate routing audit
+The result is `artifacts/compact-control-note.pdf`. Build the earlier
+parameter-only note with `make note`, producing `artifacts/parameter-note.pdf`.
+Build the separate routing audit
 with `make audit-note`, producing `artifacts/nonadjacent-axis-note.pdf`.
 Build the tuning note with `make tuned-note`, producing
 `artifacts/routing-tuned-note.pdf`. Build the preserved stage-sharing note with
 `make reuse-note`, producing `artifacts/stage-reuse-note.pdf`.
 Build the rectangle-circuit note with `make incidence-note`, producing
 `artifacts/incidence-note.pdf`.
-Build the latest shared-computation note with `make dag-note`, producing
+Build the shared-computation note with `make dag-note`, producing
 `artifacts/dag-note.pdf`.
+Build the cross-group and paired notes with `make shared-point-note` and
+`make paired-note`, producing `artifacts/shared-point-note.pdf` and
+`artifacts/paired-note.pdf`, respectively.
 The first run may download fonts
 and TeX packages; the numerical verification does not use them. PDF builds may
 differ in metadata or typesetting across TeX environments. The exact-byte
@@ -129,5 +195,60 @@ and [setup-python](https://github.com/actions/setup-python) actions, with
 read-only repository permissions. The PDF is supplied for readers and can be
 rebuilt locally using the command above.
 
-Build the latest note with `make paired-note`. The earlier notes and
+Build the latest note with `make compact-note`. The earlier notes and
 patches remain available as independent witnesses.
+
+
+## Branch experiments (`codex/raise-kappa`)
+
+The PR #7 import is pinned to `6725c6a17b17871a35353fd29157f4ed851bc114`.
+Its original source, attribution, tests, and certificate are retained.
+The new branch work consists of code, certificates, and working derivations.
+
+```sh
+python3 scripts/source_frame_stream_network.py --workdir /private/tmp/source-frame-stream
+python3 scripts/batched_stream_network.py --workdir /private/tmp/batched-stream
+python3 scripts/ternary_reuse_network.py
+python3 scripts/ternary_fused_network.py
+python3 -m unittest discover -s tests -v
+```
+
+The source-frame driver reproduces the current conditional
+**κ = 1.076678e-6 > 2^-20** result. It rebuilds the h30 selected 16+14
+producer, stars, exact support/core audit, complete frame construction, and
+bilateral physical compiler. It checks every partner permutation image and
+combines PR #13's source relocation with the complete h28 complex residual
+histogram and precision bound. It writes `source-frame-stream-witness.json`.
+After reproducing the dimension-30 producer separately, pass
+`--producer certificates/dimension30-stream-producer.json` to reuse it with
+source-hash validation. Pinned PR #12 and #13 sources live in `references/`.
+
+The earlier batched driver reproduces conditional **κ = 1.64886e-7**
+at h28. It regenerates the selected 16+12 plan, checks every support family,
+resynthesizes the four-point stars, independently checks the rewritten DAG,
+audits all rational frames, and materializes the full nested-wire register
+schedule. It then checks the recursive moments and all assembly inequalities.
+Its three outputs are `ternary-stream-producer.json`,
+`ternary-stream-witness.json` (singleton recursion), and
+`batched-stream-witness.json` under `certificates/`. Source and artifact hashes
+bind the finite results to the working arguments. PR #10's unmodified
+dependencies and pinned manifest live in `references/pr10/`.
+
+The fused driver regenerates the direct producer, direct assembly, frame
+fusion, and fused assembly certificates together. It checks every output
+support family, repairs and checks the rational frames, computes F3 boundary
+ranks, and checks the exact assembly inequalities. Its source hashes include
+the working arguments in `docs/research/`. It requires a C++17 compiler,
+several GB of memory, and roughly two minutes on the development machine.
+The reuse driver checks a separate improvement to PR #7; its savings must
+not be added to the direct producer's savings.
+
+`make verify` includes these checks and all inherited checks. For a quick
+arithmetic check without regenerating certificates, use
+`python3 scripts/source_frame_stream_network.py --quick` (including the
+complex histogram but without the large producer). Exact finite checks do
+not replace the general compiler, controlled-basis, transfer, and tensor-stage
+arguments or the inherited multiplication interfaces. The current composition
+uses PR #10's corrected Gaussian shifted-error enclosure; the historical
+source is preserved. Older role-budget ceilings assumed singleton recursion
+and do not apply to the batched result.

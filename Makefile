@@ -1,4 +1,4 @@
-.PHONY: verify note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note fetch
+.PHONY: verify note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note compact-note complex-note fast-gaussian-note aligned-bit-note fetch
 
 verify:
 	python3 scripts/certify.py
@@ -22,6 +22,39 @@ verify:
 	python3 scripts/make_shared_point_patch.py
 	python3 scripts/paired_network.py
 	python3 scripts/make_paired_patch.py
+	python3 scripts/prepare_layers.py
+	python3 scripts/audit_sparse_fusion.py
+	python3 scripts/audit_fused_block.py
+	python3 scripts/audit_short_guards.py
+	python3 scripts/audit_gather_schedules.py
+	python3 scripts/audit_coded_carries.py
+	python3 scripts/audit_cancellation.py
+	python3 scripts/audit_joint_frames.py
+	python3 scripts/audit_compact_controls.py
+	python3 scripts/compact_control_layer.py
+	python3 scripts/make_compact_control_patch.py
+	python3 scripts/complex_network.py
+	python3 scripts/make_complex_circuit_patch.py
+	python3 scripts/fast_gaussian.py
+	python3 scripts/make_fast_gaussian_patch.py
+	python3 scripts/aligned_bit_network.py
+	python3 scripts/make_aligned_bit_patch.py
+	python3 scripts/prime_field_network.py
+	python3 scripts/make_prime_field_patch.py
+	python3 scripts/audit_kappa_targets.py
+	python3 scripts/experiments/bit_breakthrough_affine_centers.py
+	python3 scripts/experiments/label_breakthrough_polynomial_screen.py
+	python3 scripts/experiments/assembly_breakthrough_guard.py --output certificates/assembly-breakthrough-guard.json
+	python3 scripts/experiments/ternary_direction.py
+	python3 scripts/experiments/ternary_depth_exchange.py --output certificates/ternary-depth.json
+	python3 scripts/experiments/ternary_reuse_core2.py
+	python3 scripts/ternary_reuse_network.py
+	python3 scripts/ternary_fused_network.py
+	python3 scripts/batched_stream_network.py
+	python3 scripts/dimension30_stream_network.py
+	python3 scripts/source_frame_stream_network.py --producer certificates/dimension30-stream-producer.json
+	python3 scripts/experiments/complex_all_residuals.py --output certificates/complex-all-residuals.json
+	python3 scripts/experiments/batched_role_targets.py --output certificates/batched-role-targets.json
 	python3 scripts/audit_scratch_pooling.py
 	python3 scripts/reuse_network.py
 	python3 scripts/make_reuse_patch.py
@@ -42,6 +75,11 @@ verify:
 	git apply --check --directory=upstream patches/h46-dag-63.patch
 	git apply --check --directory=upstream patches/h46-shared-point.patch
 	git apply --check --directory=upstream patches/h50-paired-59.patch
+	git apply --check --directory=upstream patches/compact-control-34.patch
+	git apply --check --directory=upstream patches/complex-circuit-31.patch
+	git apply --check --directory=upstream patches/fast-gaussian-30.patch
+	git apply --check --directory=upstream patches/aligned-bit-30.patch
+	git apply --check --directory=upstream patches/prime-field28.patch
 
 note:
 	mkdir -p artifacts
@@ -74,6 +112,22 @@ shared-point-note:
 paired-note:
 	mkdir -p artifacts
 	tectonic --outdir artifacts notes/paired-note.tex
+
+compact-note:
+	mkdir -p artifacts
+	tectonic --outdir artifacts notes/compact-control-note.tex
+
+complex-note:
+	mkdir -p artifacts
+	tectonic --outdir artifacts notes/complex-circuit-note.tex
+
+fast-gaussian-note:
+	mkdir -p artifacts
+	tectonic --outdir artifacts notes/fast-gaussian-note.tex
+
+aligned-bit-note:
+	mkdir -p artifacts
+	tectonic --outdir artifacts notes/aligned-bit-note.tex
 
 fetch:
 	python3 scripts/fetch_upstream.py
