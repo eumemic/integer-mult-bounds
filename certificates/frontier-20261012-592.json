@@ -1,0 +1,52 @@
+{
+  "pr": 592,
+  "source_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/592",
+  "source_head": "9092320f7932dbe61a78f15b6c5fd6a0cbd41307",
+  "title": "Conditional κ = 0.001612719427075359: hyperplane-ended helpers with ck/atm3 dispatch",
+  "status": "INDEPENDENT_ROOT_CLEAN_REPLAY_PASS",
+  "kappa": "0.001612719427075359",
+  "conservative_kappa": "0.001612719424224312",
+  "complex_lower": "807662246132532878767/500000000000000000000000",
+  "global_profile": {"1": 182818, "2": 34193, "3": 22560, "4": 14584, "5": 4032, "6": 4032, "8": 576, "12": 1, "48": 1969},
+  "provider_counts": {"ck": 53, "atm3": 19},
+  "replay": {
+    "work": "/private/tmp/pr592-full-replay",
+    "status": "PASS_HPEQ4_NATIVE_COMPLEX_AND_CITED_BIT",
+    "seconds": 338.45477745798416,
+    "baseline_fresh": true,
+    "top_level_stages": 32,
+    "nested_baseline_stages": 9,
+    "log_count": 32,
+    "artifact_count": 31,
+    "receipt_sha256": "13db1006088ecb880815fb116e6cc464b2e18c91426bdf3a9efdad481427beae",
+    "result_sha256": "f36956b317d8dddbf12b956f76e50347e20d696c6168724b71eee990babd8867",
+    "source_package_manifest_sha256": "5eec98504dbe84cd87c429c7fc412b509c72dc11b8c552de922e635bac31b715"
+  },
+  "checks": {
+    "source_pins": "PINS OK",
+    "actual_scalar_words": true,
+    "arbitrary_dirty_restoration": true,
+    "both_reflected_ledgers": true,
+    "phase_edges": true,
+    "wrappers": true,
+    "owners_and_profile": true,
+    "fresh_invoice": true,
+    "exact_assembly": true,
+    "moment_engines": 2,
+    "outer_constraints": 47,
+    "assembly_controls": 147,
+    "timing_controls": true,
+    "recompression_and_rebound_controls": true
+  },
+  "mechanism": "The PR592 owner map dispatches only ck and atm3 calls. In each provider, 38 entering width-8 helpers end at a certified terminal hyperplane, reducing their residual width to 7 and pairing them with width-9 owner slots. The change is mass-neutral and leaves the rank deficit unchanged while improving the paid profile.",
+  "pinned_sources": {
+    "multicold": "PR568 commit 71c99ac935a33bb7b59a1b4a7af8725a939b0b90",
+    "larger_gain": "PR569 source files pinned by the PR592 SPEC",
+    "structural_gain": "PR571 commit b7bdc5a8de18fcf418cfb9c7d83a2b1097a5e4a3",
+    "joint_prefix": "PR575 commit eac6f7e378ab622dac50a2fd4b7ef6eab014de44",
+    "frame_coalescing": "PR583 commit 89be768f0157f5a3d8e4db69cf1748768605eac9"
+  },
+  "provenance": "PR592 credits chafreaky, jon314159, DominikScholz, jeremykothe2, eumemic, rohanarun, Dugongue, icekylinx, DreamingOfClouds and the original OpenAI #109 framework. PR592 discloses Claude Opus 5.5 (Anthropic) in its NOTICE and body; this independent replay was performed with OpenAI Codex assistance.",
+  "scope": "Conditional finite exact-complex witness. The all-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape/exact recovery, bit H1-H5 assumptions and analytic transfer remain assumptions. No unconditional theorem or full Lean certification is claimed.",
+  "conservative_complex_lower": "1615324489404801288267/1000000000000000000000000"
+}
